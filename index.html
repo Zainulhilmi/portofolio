@@ -2,313 +2,347 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Portofolio CV - Zainul Hilmi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zainul Hilmi | Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        .card-animate {
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            cursor: pointer;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .card-animate:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+        body {
+            background: #0f172a;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        .card-animate:active {
-            transform: scale(0.97);
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-hover {
+            transition: 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.35);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .glow {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.35);
+        }
+
+        .skill {
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #2563eb;
+            transform: scale(1.05);
         }
     </style>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="text-white">
 
-    <!-- ================= HEADER ================= -->
-    <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-16">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+    <!-- NAVBAR -->
+    <nav class="fixed w-full top-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Zainul Hilmi</h1>
 
-            <!-- FOTO (PORTRAIT - TINGGI DIBESARKAN) -->
-            <div class="flex justify-center md:justify-end">
-                <img src="./assets/img/Zainul_hilmi.jpeg" alt="Zainul Hilmi"
-                    class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-2xl border-4 border-white shadow-xl">
+            <div class="hidden md:flex gap-8 text-sm">
+                <a href="#about" class="hover:text-blue-400">Tentang</a>
+                <a href="#skills" class="hover:text-blue-400">Keahlian</a>
+                <a href="#projects" class="hover:text-blue-400">Proyek</a>
+                <a href="#experience" class="hover:text-blue-400">Pengalaman</a>
+                <a href="#contact" class="hover:text-blue-400">Kontak</a>
             </div>
+        </div>
+    </nav>
 
-            <!-- BIODATA -->
-            <div class="text-center md:text-left space-y-4">
-                <h1 class="text-4xl font-extrabold">
-                    Zainul Hilmi <span class="text-yellow-300">S.Kom</span>
+    <!-- HERO -->
+    <section class="min-h-screen flex items-center relative overflow-hidden px-6">
+
+        <div class="absolute w-96 h-96 bg-blue-500 rounded-full blur-[120px] opacity-20 -top-10 -left-10"></div>
+        <div class="absolute w-96 h-96 bg-cyan-500 rounded-full blur-[120px] opacity-20 bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center z-10">
+
+            <div data-aos="fade-right">
+                <p class="text-blue-400 uppercase tracking-widest mb-4">
+                    Welcome To My Portfolio
+                </p>
+
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+                    Hi, I'm <span class="gradient-text">Zainul Hilmi</span>
                 </h1>
 
-                <p class="text-lg opacity-90">
-                    Lulusan S1 Sistem Informasi
+                <p class="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl">
+                    Fresh Graduate S1 Sistem Informasi dengan pengalaman di bidang administrasi,
+                    pengolahan data, dan pengembangan sistem informasi berbasis web.
+                    Memiliki kemampuan dalam Microsoft Excel, data analyst dasar,
+                    dan pengembangan aplikasi PHP & MySQL.
                 </p>
 
-                <p class="text-sm opacity-90 leading-relaxed">
-                    Kab. Banjar, Kalimantan Selatan <br>
-                    📧 helmi.zh28@gmail.com <br>
-                    📞 0831-9234-7528
-                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects"
+                        class="bg-blue-600 hover:bg-blue-700 px-7 py-3 rounded-full font-semibold transition glow">
+                        Lihat Portfolio
+                    </a>
 
-                <a href="./assets/Cv/CV.Zainul Hilmi.pdf" download
-                    class="inline-flex items-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-100 transition">
-                    📄 Download CV (PDF)
+                    <a href="./assets/Cv/cv.saya.pdf" download
+                        class="border border-blue-500 hover:bg-blue-500 px-7 py-3 rounded-full font-semibold transition">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex justify-center" data-aos="zoom-in">
+                <div class="relative floating">
+                    <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-30 rounded-full"></div>
+
+                    <img src="./assets/img/Zainul_hilmi.jpeg" alt="Zainul Hilmi"
+                        class="relative w-72 md:w-96 rounded-[40px] border-4 border-blue-500 shadow-2xl object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Tentang Saya</h2>
+                <p class="text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    Lulusan S1 Sistem Informasi 2025 dengan IPK 3,67 dengan pengalaman sebagai Data Management
+                    Intern di Badan Pusat Statistik Kabupaten Banjar. Memiliki keahlian dalam pengolahan data,
+                    administrasi, dan pengembangan sistem informasi berbasis web. Terbiasa mengelola data secara akurat,
+                    menyusun laporan berbasis Excel, serta bekerja secara sistematis dan berbasis target. Berkomitmen
+                    untuk memberikan kontribusi signifikan di bidang administrasi, data analyst, dan IT support melalui
+                    keahlian dan pengalaman yang dimiliki.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="glass rounded-3xl p-8 card-hover" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-400">Data Management</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Pengolahan data, validasi data, Microsoft Excel,
+                        reporting, dan rekap administrasi.
+                    </p>
+                </div>
+
+                <div class="glass rounded-3xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-3 text-cyan-400">Web Development</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Mengembangkan aplikasi web menggunakan PHP,
+                        MySQL, HTML, Tailwind CSS, dan JavaScript.
+                    </p>
+                </div>
+
+                <div class="glass rounded-3xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-3 text-sky-400">Administration</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Terbiasa bekerja secara sistematis, teliti,
+                        dan berbasis target dalam pekerjaan administrasi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24 px-6 bg-slate-900">
+        <div class="max-w-6xl mx-auto text-center">
+
+            <h2 class="text-4xl font-bold mb-14" data-aos="fade-up">
+                Keahlian
+            </h2>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="skill glass px-6 py-3 rounded-full">Microsoft Excel</div>
+                <div class="skill glass px-6 py-3 rounded-full">Data Entry</div>
+                <div class="skill glass px-6 py-3 rounded-full">Data Validation</div>
+                <div class="skill glass px-6 py-3 rounded-full">PHP</div>
+                <div class="skill glass px-6 py-3 rounded-full">MySQL</div>
+                <div class="skill glass px-6 py-3 rounded-full">Tailwind CSS</div>
+                <div class="skill glass px-6 py-3 rounded-full">HTML & CSS</div>
+                <div class="skill glass px-6 py-3 rounded-full">JavaScript</div>
+                <div class="skill glass px-6 py-3 rounded-full">Reporting</div>
+                <div class="skill glass px-6 py-3 rounded-full">Administration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Project Portfolio</h2>
+                <p class="text-slate-400">Project yang pernah saya kerjakan</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <div class="glass rounded-3xl overflow-hidden card-hover" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                        class="h-60 w-full object-cover">
+
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">
+                            Sistem Informasi Statistik Kependudukan
+                        </h3>
+
+                        <p class="text-slate-300 leading-relaxed mb-5">
+                            Sistem berbasis web untuk pengelolaan data kependudukan,
+                            laporan statistik, migrasi penduduk, kelahiran,
+                            kematian, dan monitoring wilayah.
+                        </p>
+
+                        <div class="flex gap-3 flex-wrap">
+                            <span class="bg-blue-600/30 px-3 py-1 rounded-full text-sm">PHP</span>
+                            <span class="bg-blue-600/30 px-3 py-1 rounded-full text-sm">MySQL</span>
+                            <span class="bg-blue-600/30 px-3 py-1 rounded-full text-sm">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-3xl overflow-hidden card-hover" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+                        class="h-60 w-full object-cover">
+
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-cyan-400">
+                            Website Portfolio Modern
+                        </h3>
+
+                        <p class="text-slate-300 leading-relaxed mb-5">
+                            Portfolio online responsive modern dengan animasi interaktif,
+                            dark mode premium, dan desain profesional untuk HRD.
+                        </p>
+
+                        <div class="flex gap-3 flex-wrap">
+                            <span class="bg-cyan-600/30 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="bg-cyan-600/30 px-3 py-1 rounded-full text-sm">Tailwind</span>
+                            <span class="bg-cyan-600/30 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-24 px-6 bg-slate-900">
+        <div class="max-w-5xl mx-auto">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Pengalaman</h2>
+                <p class="text-slate-400">Pengalaman magang & aktivitas profesional</p>
+            </div>
+
+            <div class="glass rounded-3xl p-10 card-hover" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-400">
+                            Badan Pusat Statistik Kabupaten Banjar
+                        </h3>
+                        <p class="text-slate-300">Data Management / Peserta PKL</p>
+                    </div>
+
+                    <div class="bg-blue-600 px-5 py-2 rounded-full text-sm w-max">
+                        10/2024 - 12/2024
+                    </div>
+                </div>
+
+                <ul class="space-y-4 text-slate-300 leading-relaxed list-disc ml-6">
+                    <li>Menginput dan memvalidasi 1.000+ data kependudukan tingkat kecamatan untuk memastikan akurasi
+                        dan konsistensi data.</li>
+                    <li>Menyusun laporan statistik menggunakan Microsoft Excel untuk mendukung analisis dan
+                        pengambilan keputusan
+                        .</li>
+                    <li>Mengembangkan aplikasi sistem informasi berbasis web yang meningkatkan efisiensi pengelolaan
+                        data kependudukan hingga 15%, melalui proses input dan pelaporan data.</li>
+                    <li>Berkoordinasi dengan tim BPS dalam proses pengumpulan, validasi, dan pelaporan data.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+
+            <h2 class="text-5xl font-bold mb-6" data-aos="fade-up">
+                Let's Work Together
+            </h2>
+
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
+                Saya siap berkontribusi di bidang administrasi,
+                data analyst, IT support, maupun web development.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-5">
+
+                <a href="mailto:helmi.zh28@gmail.com"
+                    class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full font-semibold transition glow">
+                    Email Saya
                 </a>
 
-            </div>
-    </header>
-
-    <!-- ================= TENTANG SAYA ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-4">Tentang Saya</h2>
-        <p class="text-gray-700 leading-relaxed text-justify">
-            Lulusan S1 Sistem Informasi dengan IPK 3,67 dan pengalaman sebagai Admin Intern di Badan Pusat
-            Statistik Kabupaten Banjar. Memiliki keahlian dalam pengolahan data, administrasi, dan pengembangan
-            sistem informasi berbasis web. Terbiasa mengelola data secara akurat, menyusun laporan berbasis Excel,
-            serta bekerja secara sistematis dan berbasis target. Siap berkontribusi dalam bidang administrasi, data
-            analyst, maupun IT support.
-        </p>
-    </section>
-
-    <!-- ================= PENDIDIKAN ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-6">Pendidikan</h2>
-        <ul class="space-y-3 text-gray-700">
-            <li>🎓 Universitas Islam Kalimantan Syekh Muhammad Arsyad Al Banjari – <b>S1 Sistem Informasi</b>
-                (2021–2025)</li>
-            <li>🎓 SMK PGRI 1 Martapura – Multimedia (2018–2021)</li>
-            <li>🎓 MTs. Syekh Khalid (2015–2018)</li>
-            <li>🎓 SD Negeri Pingaran Ulu (2009–2015)</li>
-        </ul>
-    </section>
-
-    <!-- ================= MAGANG ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-4">Pengalaman Magang</h2>
-
-        <h3 class="text-lg font-semibold">Badan Pusat Statistik (BPS) Kabupaten Banjar</h3>
-        <p class="text-blue-600 font-medium mb-3">Peserta Magang / PKL</p>
-
-        <ul class="list-disc ml-6 text-gray-700 space-y-1">
-            <li>Mengolah dan memvalidasi data kependudukan tingkat kecamatan</li>
-            <li>Membantu penyusunan laporan statistik menggunakan Microsoft Excel</li>
-            <li>Mendukung pengembangan Sistem Informasi Statistik Kependudukan</li>
-            <li>Melakukan input dan rekap data administrasi</li>
-        </ul>
-    </section>
-
-    <!-- ================= KEAHLIAN ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-4">Keahlian</h2>
-        <ul class="grid md:grid-cols-2 gap-3 text-gray-700">
-            <li>✔ Microsoft Excel (VLOOKUP, Pivot Table, Data Entry, Rekap Data, Data Cleaning)</li>
-            <li>✔ Microsoft Office (Word, PowerPoint)</li>
-            <li>✔ Administrasi dan Pengarsipan Dokumen</li>
-            <li>✔ Data Entry, Data Validation & Reporting</li>
-            <li>✔ Pengolahan dan Analisis Data Dasar</li>
-            <li>✔ Pengembangan Sistem Informasi (PHP & MySQL)</li>
-            <li>✔ Manajemen Waktu dan Ketelitian Kerja</li>
-        </ul>
-    </section>
-
-    <!-- ================= PROYEK ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-6">Proyek & Portofolio</h2>
-
-        <div class="space-y-4">
-            <div class="border-l-4 border-blue-600 pl-4">
-                <h3 class="font-semibold text-lg">Sistem Informasi Statistik Kependudukan</h3>
-                <p class="text-sm text-gray-600">
-                    Aplikasi web berbasis PHP untuk pengolahan data kependudukan
-                    (kelahiran, kematian, migrasi, pekerjaan, dan laporan statistik)
-                    yang dikembangkan saat magang di BPS Kabupaten Banjar.
-                </p>
-            </div>
-
-            <div class="border-l-4 border-blue-600 pl-4">
-                <h3 class="font-semibold text-lg">Web Portofolio Pribadi</h3>
-                <p class="text-sm text-gray-600">
-                    Website portofolio online menggunakan HTML, Tailwind CSS,
-                    dan jsPDF untuk unduh CV otomatis.
-                </p>
+                <a href="https://wa.me/6283192347528"
+                    class="border border-blue-500 hover:bg-blue-600 px-8 py-4 rounded-full font-semibold transition">
+                    WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ================= SERTIFIKAT ================= -->
-    <section class="max-w-6xl mx-auto bg-white p-8 mt-10 rounded-2xl shadow-lg card-animate">
-        <h2 class="text-2xl font-bold mb-4">Sertifikat</h2>
-
-        <div class="border rounded-lg p-5 bg-gray-50">
-            <h3 class="font-semibold text-lg">Pemrograman Berbasis Objek</h3>
-            <p class="text-blue-600">Badan Nasional Sertifikasi Profesi (BNSP)</p>
-            <p class="text-sm text-gray-600 mb-3">Berlaku: 2025 – 2028</p>
-
-            <a href="./assets/sertifikat/sertifikat_bnsp_pemprograman objek.pdf" download
-                class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
-                📥 Download Sertifikat
-            </a>
-        </div>
-
-        <div class="border rounded-lg p-5 bg-gray-50">
-            <h3 class="font-semibold text-lg">Design Grafis</h3>
-            <p class="text-blue-600">Universitas Islam Kalimantan Syekh Muhammad Arsyad Al-Banjari</p>
-
-            <a href="./assets/sertifikat/sertifikat_desain.pdf" download
-                class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
-                📥 Download Sertifikat
-            </a>
-        </div>
-
-        <div class="border rounded-lg p-5 bg-gray-50">
-            <h3 class="font-semibold text-lg">Pemrograman Web</h3>
-            <p class="text-blue-600">Universitas Islam Kalimantan Syekh Muhammad Arsyad Al-Banjari</p>
-
-            <a href="./assets/sertifikat/sertifikat.pdf" download
-                class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">
-                📥 Download Sertifikat
-            </a>
-        </div>
-    </section>
-
-    <footer class="text-center text-sm text-gray-500 py-8">
-        © 2025 Zainul Hilmi — Portofolio CV
+    <!-- FOOTER -->
+    <footer class="py-8 text-center border-t border-slate-800 text-slate-500">
+        © 2025 Zainul Hilmi — Modern Portfolio Website
     </footer>
 
-    <!-- ================= PDF SCRIPT ================= -->
     <script>
-        document.getElementById("downloadBtn").addEventListener("click", function () {
-
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF("p", "mm", "a4");
-
-            // ================= CONFIG =================
-            const marginLeft = 15;
-            const marginRight = 15;
-            const pageWidth = doc.internal.pageSize.width;
-            const pageHeight = doc.internal.pageSize.height;
-            const contentWidth = pageWidth - marginLeft - marginRight;
-
-            let y = 15;
-            const lineHeight = 5.0; // DIPERKECIL BIAR PADAT
-
-            function addSectionTitle(title) {
-                y += 5;
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(11);
-                doc.text(title, marginLeft, y);
-
-                y += 4;
-                doc.line(marginLeft, y, pageWidth - marginRight, y);
-                y += 4;
-            }
-
-            function addParagraph(text) {
-                doc.setFont("helvetica", "normal");
-                doc.setFontSize(11);
-
-                const paragraphs = text.split("\n");
-
-                paragraphs.forEach(p => {
-                    const splitText = doc.splitTextToSize(p, contentWidth);
-                    doc.text(splitText, marginLeft, y);
-                    y += splitText.length * lineHeight + 3; // spasi antar baris + sedikit jarak
-                });
-
-                y += 2; // jarak antar paragraf biar nggak nempel section berikutnya
-            }
-
-
-            // ================= HEADER =================
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(16);
-            doc.text("ZAINUL HILMI, S.Kom", pageWidth / 2, y, { align: "center" });
-
-            y += 5;
-
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(10);
-            doc.text("Lulusan S1 Sistem Informasi", pageWidth / 2, y, { align: "center" });
-
-            y += 4;
-
-            doc.setFontSize(9);
-            doc.text(
-                "Kab. Banjar, Kalimantan Selatan | HP: 0831-9234-7528 | Email: helmi.zh28@gmail.com",
-                pageWidth / 2,
-                y,
-                { align: "center" }
-            );
-
-            y += 4;
-
-            doc.setTextColor(0, 0, 255);
-            doc.textWithLink(
-                "Portofolio: https://zainulhilmi.github.io/portofolio/",
-                pageWidth / 2,
-                y,
-                { align: "center", url: "https://zainulhilmi.github.io/portofolio/" }
-            );
-            doc.setTextColor(0, 0, 0);
-
-            y += 4;
-            doc.line(marginLeft, y, pageWidth - marginRight, y);
-
-            // ================= PROFIL =================
-            addSectionTitle("PROFIL SINGKAT");
-            addParagraph(
-                "Lulusan S1 Sistem Informasi dengan minat pada pengolahan data, sistem informasi, dan administrasi perkantoran. " +
-                "Berpengalaman magang di Badan Pusat Statistik Kabupaten Banjar dalam pengolahan dan validasi data kependudukan " +
-                "serta penyusunan laporan statistik. Terbiasa bekerja secara teliti, sistematis, dan bertanggung jawab."
-            );
-
-            // ================= PENDIDIKAN =================
-            addSectionTitle("PENDIDIKAN");
-            addParagraph(
-                "Universitas Islam Kalimantan Syekh Muhammad Arsyad Al Banjari | S1 Sistem Informasi | 2021 – 2025 | IPK 3,67 \n" +
-                "Skripsi: Aplikasi Analisis Data dan Monitoring Kependudukan Berbasis Web di BPS Kab. Banjar\n" +
-                "SMK PGRI 1 Martapura – Multimedia (2018 – 2021)\n" +
-                "MTs. Syekh Khalid (2015 – 2018) | SD Negeri Pingaran Ulu (2009 – 2015)"
-            );
-
-            // ================= PENGALAMAN =================
-            addSectionTitle("PENGALAMAN MAGANG");
-            addParagraph(
-                "Badan Pusat Statistik (BPS) Kabupaten Banjar – Peserta Magang / PKL\n" +
-                "• Mengolah dan memvalidasi data kependudukan tingkat kecamatan\n" +
-                "• Menyusun laporan statistik menggunakan Microsoft Excel\n" +
-                "• Mendukung pengembangan Sistem Informasi Statistik Kependudukan\n" +
-                "• Input dan rekap data administrasi secara berkala\n" +
-                "• Berkoordinasi dengan tim statistik daerah"
-            );
-
-            // ================= KEAHLIAN =================
-            addSectionTitle("KEAHLIAN");
-            addParagraph(
-                "Teknis: Microsoft Excel (Analisis Data), Word, PowerPoint, Administrasi, Dasar Pemrograman Web\n" +
-                "Pendukung: Teliti, sistematis, mampu bekerja sendiri maupun tim, bertanggung jawab, cepat belajar"
-            );
-
-            // ================= SERTIFIKAT =================
-            addSectionTitle("SERTIFIKAT");
-            addParagraph(
-                "Sertifikat Kompetensi Pemrograman Berbasis Objek – BNSP (2025 – 2028)\n" +
-                "Design Grafis – Universitas Islam Kalimantan\n" +
-                "Pemrograman Berbasis Web – Universitas Islam Kalimantan"
-            );
-
-            doc.save("CV_Zainul_Hilmi.pdf");
+        AOS.init({
+            duration: 1200,
+            once: true,
         });
     </script>
-
-
 
 </body>
 
